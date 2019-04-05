@@ -28,6 +28,8 @@ FROM AgentCommission;
 --For all houses that were sold that month, 
 --calculate the average number of days that the house was on the market.
 -- month: 201903
+-- indexing used for question 4 and 5 to make it faster to find March
+CREATE INDEX month ON Sales(SaleMonth);
 SELECT '4. Calculate the average number of days that the house was on the market.';
 SELECT SaleMonth, AVG(julianday(SaleDay) - julianday(startDay)) AS Duration
 FROM House 
@@ -43,7 +45,7 @@ SELECT SaleMonth, AVG(SalePrice) AS average_sales
 FROM Sales
 WHERE SaleMonth=201903
 GROUP BY SaleMonth;
-
+DROP INDEX month;
 -- Find the zip codes with the top 5 average sales prices
 SELECT '6. Find the zip codes with the top 5 average sales prices';
 SELECT zipCode, AVG(SalePrice) AS average_sales
