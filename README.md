@@ -26,3 +26,6 @@ Run ```query.sql``` to run all the query statements:
 ```bash
 >>> .read query.sql
 ```
+
+## ERD for the database:
+![ERD](ERD.png)
