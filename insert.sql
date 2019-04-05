@@ -120,7 +120,7 @@ INSERT INTO Summary VALUES (201903, 0);
 INSERT INTO Summary VALUES (201904, 0);
 INSERT INTO Summary VALUES (201905, 0);
 
--- Insert Agent Commision
+-- Insert Agent Commission
 INSERT INTO AgentCommission VALUES(1,0);
 INSERT INTO AgentCommission VALUES(2,0);
 INSERT INTO AgentCommission VALUES(3,0);
@@ -165,7 +165,7 @@ WHERE id = 1;
 UPDATE _Variables SET agent = 
 (SELECT AgentID FROM House WHERE HouseID = 1) 
 WHERE id = 1;
--- find the commision Rate
+-- find the Commission Rate
 UPDATE _Variables SET rate = 
 (SELECT Rate FROM Commission 
 	WHERE LowerBound <= house_price AND UpperBound > house_price) 
@@ -189,6 +189,8 @@ SET TotalCommission = TotalCommission +
 (SELECT commission FROM _Variables WHERE id=1) 
 WHERE AgentID = 
 (SELECT agent FROM _Variables WHERE id=1);
+-- Update House
+UPDATE House SET Sold = TRUE WHERE HouseID = 1;
 -- drop the variable table
 DROP TABLE _Variables;
 END TRANSACTION;
@@ -212,7 +214,7 @@ WHERE id = 1;
 UPDATE _Variables SET agent = 
 (SELECT AgentID FROM House WHERE HouseID = 2) 
 WHERE id = 1;
--- find the commision Rate
+-- find the Commission Rate
 UPDATE _Variables SET rate = 
 (SELECT Rate FROM Commission 
 	WHERE LowerBound <= house_price AND UpperBound > house_price) 
@@ -236,6 +238,8 @@ SET TotalCommission = TotalCommission +
 (SELECT commission FROM _Variables WHERE id=1) 
 WHERE AgentID = 
 (SELECT agent FROM _Variables WHERE id=1);
+-- Update House
+UPDATE House SET Sold = TRUE WHERE HouseID = 2;
 -- drop the variable table
 DROP TABLE _Variables;
 END TRANSACTION;
@@ -261,7 +265,7 @@ WHERE id = 1;
 UPDATE _Variables SET agent = 
 (SELECT AgentID FROM House WHERE HouseID = 3) 
 WHERE id = 1;
--- find the commision Rate
+-- find the Commission Rate
 UPDATE _Variables SET rate = 
 (SELECT Rate FROM Commission 
 	WHERE LowerBound <= house_price AND UpperBound > house_price) 
@@ -285,6 +289,8 @@ SET TotalCommission = TotalCommission +
 (SELECT commission FROM _Variables WHERE id=1) 
 WHERE AgentID = 
 (SELECT agent FROM _Variables WHERE id=1);
+-- Update House
+UPDATE House SET Sold = TRUE WHERE HouseID = 3;
 -- drop the variable table
 DROP TABLE _Variables;
 END TRANSACTION;
@@ -310,7 +316,7 @@ WHERE id = 1;
 UPDATE _Variables SET agent = 
 (SELECT AgentID FROM House WHERE HouseID = 4) 
 WHERE id = 1;
--- find the commision Rate
+-- find the Commission Rate
 UPDATE _Variables SET rate = 
 (SELECT Rate FROM Commission 
 	WHERE LowerBound <= house_price AND UpperBound > house_price) 
@@ -336,6 +342,8 @@ SET TotalCommission = TotalCommission +
 (SELECT commission FROM _Variables WHERE id=1) 
 WHERE AgentID = 
 (SELECT agent FROM _Variables WHERE id=1);
+-- Update House ** change house id
+UPDATE House SET Sold = TRUE WHERE HouseID = 4;
 -- drop the variable table
 DROP TABLE _Variables;
 END TRANSACTION;
@@ -360,7 +368,7 @@ WHERE id = 1;
 UPDATE _Variables SET agent = 
 (SELECT AgentID FROM House WHERE HouseID = 5) 
 WHERE id = 1;
--- find the commision Rate
+-- find the Commission Rate
 UPDATE _Variables SET rate = 
 (SELECT Rate FROM Commission 
 	WHERE LowerBound <= house_price AND UpperBound > house_price) 
@@ -386,6 +394,8 @@ SET TotalCommission = TotalCommission +
 (SELECT commission FROM _Variables WHERE id=1) 
 WHERE AgentID = 
 (SELECT agent FROM _Variables WHERE id=1);
+-- Update House
+UPDATE House SET Sold = TRUE WHERE HouseID = 5;
 -- drop the variable table
 DROP TABLE _Variables;
 END TRANSACTION;

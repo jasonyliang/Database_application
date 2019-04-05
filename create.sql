@@ -46,7 +46,7 @@ CREATE TABLE House(
 	AgentID INT,
 	OfficeID INT,
 	Sold Boolean,
-	FOREIGN KEY (Seller) REFERENCES Clients(ClientID)
+	FOREIGN KEY (Seller) REFERENCES Clients(ClientID),
 	FOREIGN KEY (AgentID) REFERENCES Agent(AgentID),
 	FOREIGN KEY (OfficeID) REFERENCES Office(OfficeID) 
 );
@@ -63,10 +63,11 @@ CREATE TABLE Sales (
 	HouseID INT,
 	Buyer INT,
 	SalePrice NUMERIC(11,2),
-	Commision NUMERIC(11,2),
+	Commission NUMERIC(11,2),
 	SaleDay TEXT,
 	SaleMonth INT,
-	FOREIGN KEY (HouseID) REFERENCES House(HouseID)
+	FOREIGN KEY (HouseID) REFERENCES House(HouseID),
+	FOREIGN KEY (Buyer) REFERENCES Clients(ClientID)
 );
 
 CREATE TABLE Summary (
